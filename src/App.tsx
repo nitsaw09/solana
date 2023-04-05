@@ -93,10 +93,28 @@ export default function App() {
     }
   };
 
+  const disconnectWallet = async() => {
+    setWalletKey(undefined);
+  } 
+
 	// HTML code for the app
   return (
     <div className="App">
       <header className="App-header">
+      {provider && walletKey && (
+        <button
+          style={{
+            fontSize: "16px",
+            padding: "15px",
+            fontWeight: "bold",
+            borderRadius: "5px",
+            right: "30px",
+            top: "30px",
+            position: "absolute"
+          }}
+          onClick={disconnectWallet}
+        >Disconnect</button>
+      )}
         <h2>Connect to Phantom Wallet</h2>
       {provider && !walletKey && (
       <button
@@ -111,7 +129,12 @@ export default function App() {
         Connect Wallet
       </button>
         )}
-        {provider && walletKey && <p>Connected account</p> }
+        {provider && walletKey && (
+          <p>
+            <p>{walletKey}</p>
+            <p>Connected account</p>
+          </p> 
+        )}
 
         {!provider && (
           <p>
