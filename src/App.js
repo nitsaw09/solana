@@ -82,7 +82,8 @@ function App() {
     //Changes are only here, in the beginning
     const phantomProvider = provider;
     if (!phantomProvider) {
-      console.log("No provider found", phantomProvider);
+      alert("No provider found", phantomProvider);
+      return
     }
     const pubKey = await phantomProvider.publicKey;
     console.log("Public Key: ", pubKey);
@@ -143,7 +144,7 @@ function App() {
           {!provider && (
             <p>
               No provider found. Install{" "}
-              <a href="https://phantom.app/">Phantom Browser extension</a>
+              <a href="https://phantom.app/download">Phantom Browser extension</a>
             </p>
           )}
         </div>
